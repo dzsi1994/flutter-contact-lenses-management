@@ -28,13 +28,12 @@ class UpdateMenu extends StatelessWidget {
               onSubmit: (value) => print(value),
             ),
             SizedBox(height: 16),
-            FlatButton(
+            TextButton(
               child: Text(
                 "Submit",
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () => {},
-              color: Colors.deepOrange,
             ),
             SizedBox(height: 16),
             Column(

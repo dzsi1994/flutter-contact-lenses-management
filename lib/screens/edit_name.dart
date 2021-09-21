@@ -1,7 +1,10 @@
+import 'package:CWCFlutter/controllers/restaurant_controller.dart';
 import 'package:CWCFlutter/widget/rounded_input.dart';
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 
 class EditName extends StatelessWidget {
+  final restaurantController = RestaurantController.to;
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +15,16 @@ class EditName extends StatelessWidget {
         padding: EdgeInsets.all(24),
         child: Column(
           children: [
-            Text(
-              "Name",
-              style: TextStyle(fontSize: 48),
+            Obx(
+              () => Text(
+                '${restaurantController.name.value}',
+                style: TextStyle(fontSize: 48),
+              ),
             ),
             SizedBox(height: 16),
             RoundedInput(
               hintText: "Restauarant Name",
-              onSubmit: (value) => print(value),
+              onSubmit: (value) => restaurantController.setName(value),
             )
           ],
         ),

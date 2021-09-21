@@ -20,9 +20,14 @@ class SideDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+              title: Text("Home"),
+              onTap: () => Navigator.of(context).popAndPushNamed(
+                'home',
+              ),
+            ),
+            ListTile(
               title: Text("Change name"),
-              onTap: () => Navigator.pushNamed(
-                context,
+              onTap: () => Navigator.of(context).popAndPushNamed(
                 'edit_name',
               ),
             ),
@@ -35,15 +40,13 @@ class SideDrawer extends StatelessWidget {
             ),
             ListTile(
               title: Text("Increment/Decrement followers"),
-              onTap: () => Navigator.pushNamed(
-                context,
+              onTap: () => Navigator.of(context).popAndPushNamed(
                 'edit_follower_count',
               ),
             ),
             ListTile(
               title: Text("Toggle Open status"),
-              onTap: () => Navigator.pushNamed(
-                context,
+              onTap: () => Navigator.of(context).popAndPushNamed(
                 'toggle_status',
               ),
             ),

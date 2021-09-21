@@ -1,7 +1,9 @@
+import 'package:CWCFlutter/controllers/restaurant_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 
 class EditFollowerCount extends StatelessWidget {
-
+  final restaurantController = RestaurantController.to;
   @override
   Widget build(BuildContext context) {
     print("EditFollowerCount screen building...");
@@ -17,16 +19,22 @@ class EditFollowerCount extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.remove),
                 iconSize: 50,
-                onPressed: () {},
+                onPressed: () {
+                  restaurantController.decrementCount();
+                },
               ),
-              Text(
-                "0",
-                style: TextStyle(fontSize: 48),
+              Obx(
+                () => Text(
+                  '${restaurantController.followerCount.value.toString()}',
+                  style: TextStyle(fontSize: 48),
+                ),
               ),
               IconButton(
                 icon: Icon(Icons.add),
                 iconSize: 50,
-                onPressed: () {},
+                onPressed: () {
+                  restaurantController.incrementCount();
+                },
               ),
             ],
           ),
